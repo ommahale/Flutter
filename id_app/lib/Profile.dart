@@ -5,6 +5,15 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Profile Page');
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
+      child: Column(
+        children: const [
+          Center(
+            child: Text('Profile'),
+          )
+        ],
+      ),
+    );
   }
 }

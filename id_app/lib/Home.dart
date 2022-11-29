@@ -85,7 +85,7 @@ class LandingPage extends StatelessWidget {
               style: TextStyle(
                   letterSpacing: 2,
                   color: Colors.grey[900],
-                  fontSize: 30,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
           ],
