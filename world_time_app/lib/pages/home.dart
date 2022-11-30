@@ -14,6 +14,7 @@ class _HomeState extends State<Home> {
       body: SafeArea(
           child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton.icon(
                 onPressed: () {
@@ -22,6 +23,15 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.edit_location),
                 label: Text(
                   'Edit Location',
+                  style: TextStyle(fontSize: 20),
+                )),
+            TextButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                icon: Icon(Icons.access_time),
+                label: Text(
+                  'Time',
                   style: TextStyle(fontSize: 20),
                 ))
           ],

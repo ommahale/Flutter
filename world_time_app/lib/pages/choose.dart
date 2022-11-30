@@ -15,7 +15,6 @@ class _LoactionState extends State<Loaction> {
         title: Text('Choose Location'),
         centerTitle: true,
       ),
-      body: Text('choose loaction screen'),
     );
   }
 }
