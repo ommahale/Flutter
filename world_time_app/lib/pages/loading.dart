@@ -1,3 +1,4 @@
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:world_time_app/api/worldtime.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,12 @@ class _LoadingState extends State<Loading> {
     setState(() {
       time = instance.time;
     });
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+      'isDay': instance.dayTime
+    });
   }
 
   @override
@@ -28,23 +35,12 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Center(
-            child: Column(
-          children: [
-            Text(
-              'Time in Berlin is',
-              style: TextStyle(fontSize: 20, color: Colors.grey[500]),
-            ),
-            Text(
-              time,
-              style: TextStyle(fontSize: 19, color: Colors.grey[900]),
-            )
-          ],
-        )),
+    return const Scaffold(
+      body: Center(
+        child: SpinKitFadingCube(
+          color: Colors.cyan,
+          size: 50,
+        ),
       ),
     );
   }
