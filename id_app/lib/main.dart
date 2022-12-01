@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:id_app/Home.dart';
 import 'package:id_app/Profile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -54,6 +55,23 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.black,
         selectedItemColor: Colors.amberAccent,
         onTap: tappedHandle,
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Column(
+          children: [
+            Icon(
+              Icons.link,
+              size: 30,
+            ),
+            Text('Github')
+          ],
+        ),
+        backgroundColor: Colors.black,
+        onPressed: () {
+          launchUrl(Uri.parse('https://github.com/ommahale'),
+              mode: LaunchMode.externalApplication);
+        },
+        hoverElevation: 20,
       ),
     );
   }
