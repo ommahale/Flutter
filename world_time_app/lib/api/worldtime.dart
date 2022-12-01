@@ -7,7 +7,7 @@ class WorldTime {
   late String time;
   String? flag;
   String? url;
-  late bool dayTime;
+  bool dayTime = true;
   WorldTime({this.location, this.url, this.flag});
   Future<void> getData() async {
     try {
@@ -21,7 +21,7 @@ class WorldTime {
       DateTime now = DateTime.parse(dateTime);
       offset = offset.substring(1, 3);
       now = now.add(Duration(hours: int.parse(offset)));
-      dayTime = now.hour > 6 && now.hour < 18 ? true : false;
+      dayTime = now.hour > 5 && now.hour < 18 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       time = 'Could not retrive time data';

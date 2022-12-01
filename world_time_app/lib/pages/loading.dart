@@ -37,7 +37,7 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: SpinKitFadingCube(
+        child: SpinKitDoubleBounce(
           color: Colors.cyan,
           size: 50,
         ),
