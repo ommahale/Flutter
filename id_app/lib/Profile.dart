@@ -8,10 +8,10 @@ class ProfilePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
       child: Column(
-        children: const [
+        children: [
           Center(
             child: Text('Profile'),
-          )
+          ),
         ],
       ),
     );

@@ -19,8 +19,15 @@ class WorldTime {
       String offset = res['utc_offset'];
       //print(DateTime + Offset);
       DateTime now = DateTime.parse(dateTime);
-      offset = offset.substring(1, 3);
-      now = now.add(Duration(hours: int.parse(offset)));
+      String offset_new = offset.substring(1, 3);
+
+      if (offset.substring(0, 1) == "+") {
+        now = now.add(Duration(hours: int.parse(offset_new)));
+        now = now.add(Duration(minutes: int.parse(offset.substring(4))));
+      } else {
+        now = now.subtract(Duration(hours: int.parse(offset_new)));
+        now = now.subtract(Duration(minutes: int.parse(offset.substring(4))));
+      }
       dayTime = now.hour > 5 && now.hour < 18 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {

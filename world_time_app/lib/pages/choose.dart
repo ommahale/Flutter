@@ -22,6 +22,7 @@ class _LoactionState extends State<Loaction> {
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonasia.png'),
     WorldTime(url: 'Asia/Tokyo', location: 'Tokyo', flag: 'japan.jpg'),
     WorldTime(url: 'Australia/Sydney', location: 'Sydney', flag: 'Aus.jpg'),
+    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
   ];
   void updateTime(index) async {
     WorldTime instance = locations[index];
