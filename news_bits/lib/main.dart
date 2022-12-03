@@ -11,6 +11,7 @@ void main() {
       '/': (context) => LoadingPage(),
       '/home': (context) => HomePage(),
       '/search': (context) => SearchPage(),
+      '/load': (context) => LoadArticle()
     },
   ));
 }

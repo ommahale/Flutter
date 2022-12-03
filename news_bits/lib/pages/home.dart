@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/search');
                 },
                 child: SizedBox(
                   width: 150,
