@@ -32,7 +32,7 @@ class _SearchPageState extends State<SearchPage> {
                     color: Colors.blueAccent,
                   ),
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/load',
+                    Navigator.pushReplacementNamed(context, '/',
                         arguments: _search.text);
                   },
                 ),
