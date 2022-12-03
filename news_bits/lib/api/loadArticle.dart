@@ -5,13 +5,7 @@ import 'package:intl/intl.dart';
 
 class LoadArticle {
   String apiKey = '2bf2ffecb66b4b6a92d7a1e5e0fce40b';
-  late String title;
-  late String content;
-  late String name;
-  String urlToImage =
-      'https://media.istockphoto.com/id/1354776450/vector/no-photo-available-vector-icon-default-image-symbol-picture-coming-soon-for-web-site-or.jpg?s=612x612&w=0&k=20&c=sE9bs1rjaBAZ5hO9WZ1JH_ItWjZaMih2zE9ig0GraWY=';
-  late String description;
-  late String author;
+  late List<dynamic> data;
   String? query;
   LoadArticle({this.query});
   Future<void> getData() async {
@@ -19,13 +13,17 @@ class LoadArticle {
       Response articleData = await get(Uri.parse(
           'https://newsapi.org/v2/everything?q=$query&apiKey=2bf2ffecb66b4b6a92d7a1e5e0fce40b'));
       Map res = jsonDecode(articleData.body);
-      print(res);
+      data = res['articles'];
     } catch (e) {
-      title = 'Could not fetch data please try again later';
-      content = 'Could not fetch data please try again later';
-      name = 'Could not fetch data please try again later';
-      description = 'Could not fetch data please try again later';
-      author = 'Could not fetch data please try again later';
+      data = [
+        {
+          'source': {'name': 'Connection error'},
+          'article': 'No article fetched',
+          'title': 'Please check connection',
+          'urlToImage':
+              'https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns='
+        }
+      ];
     }
   }
 }
