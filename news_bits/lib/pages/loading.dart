@@ -25,11 +25,6 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
-    try {
-      _query = ModalRoute.of(context)!.settings.arguments as String;
-    } catch (e) {
-      _query = 'top news';
-    }
     return Scaffold(
       body: SafeArea(child: Center(child: Text(_query))),
     );
