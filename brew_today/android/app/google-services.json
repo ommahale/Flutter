@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "629664648785",
+    "project_id": "brew-today",
+    "storage_bucket": "brew-today.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629664648785:android:4b06a644af0ac26ee7b270",
+        "android_client_info": {
+          "package_name": "com.example.brew_today"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629664648785-3igbtnu2cf7roa03c4pc28mlpk200ib4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUGYrfRHxeNv-8A9ZbGW8hiuA6TM5OR8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "629664648785-3igbtnu2cf7roa03c4pc28mlpk200ib4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

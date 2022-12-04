@@ -41,9 +41,9 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
+            TextButton(
                 style: ButtonStyle(
-                  elevation: MaterialStateProperty.all(10),
+                  elevation: MaterialStateProperty.all(0),
                   shadowColor: MaterialStateProperty.all(Colors.blueGrey[200]),
                   backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),

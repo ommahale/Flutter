@@ -13,11 +13,14 @@ class _ArticlePageState extends State<ArticlePage> {
     Set artSet = ModalRoute.of(context)!.settings.arguments as Set;
     List _dataList = artSet.first;
     return Scaffold(
+      backgroundColor: Colors.blueGrey[100],
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: IconButton(
-            icon: Icon(Icons.keyboard_double_arrow_up_rounded),
-            onPressed: () {},
+            icon: Icon(Icons.replay_rounded),
+            onPressed: () {
+              Navigator.popAndPushNamed(context, '/');
+            },
           )),
       appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -31,10 +34,11 @@ class _ArticlePageState extends State<ArticlePage> {
                 color: Colors.blueAccent[700],
                 size: 30,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Container(
+                // ignore: prefer_const_constructors
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(
@@ -42,7 +46,7 @@ class _ArticlePageState extends State<ArticlePage> {
                     style: TextStyle(fontSize: 26),
                   ),
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     border: Border(
                         bottom:
                             BorderSide(color: Colors.blueAccent, width: 5))),
@@ -54,18 +58,32 @@ class _ArticlePageState extends State<ArticlePage> {
           return Padding(
             padding: const EdgeInsets.all(12.0),
             child: Card(
-              child: ListTile(
-                subtitle: Text(_dataList[index]['description'] != null
-                    ? _dataList[index]['description']
-                    : 'No description'),
-                title: Column(
-                  children: [
-                    Image.network(_dataList[index]['urlToImage']),
-                    Text(
-                      _dataList[index]['title'],
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
+              elevation: 10,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ListTile(
+                  subtitle: Text(_dataList[index]['description'] != null
+                      ? _dataList[index]['description']
+                      : 'No description'),
+                  title: Column(
+                    children: [
+                      Image.network(_dataList[index]['urlToImage'] != null
+                          ? _dataList[index]['urlToImage']
+                          : 'https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns='),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        _dataList[index]['title'] != null
+                            ? _dataList[index]['title']
+                            : "Error loading data",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

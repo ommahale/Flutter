@@ -10,7 +10,7 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  String _query = 'top news';
+  String _query = 'top%20news';
   List<dynamic> _data = [{}];
   void setData() async {
     LoadArticle instance = LoadArticle(query: _query);
@@ -29,11 +29,6 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (mounted) {
-      setState(() {
-        _data = [{}];
-      });
-    }
     return const Scaffold(
       body: Center(
         child: SpinKitFadingCircle(
