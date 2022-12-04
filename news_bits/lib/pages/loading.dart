@@ -29,6 +29,11 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (mounted) {
+      setState(() {
+        _data = [{}];
+      });
+    }
     return const Scaffold(
       body: Center(
         child: SpinKitFadingCircle(

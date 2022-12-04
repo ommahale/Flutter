@@ -55,7 +55,9 @@ class _ArticlePageState extends State<ArticlePage> {
             padding: const EdgeInsets.all(12.0),
             child: Card(
               child: ListTile(
-                subtitle: Text(_dataList[index]['description']),
+                subtitle: Text(_dataList[index]['description'] != null
+                    ? _dataList[index]['description']
+                    : 'No description'),
                 title: Column(
                   children: [
                     Image.network(_dataList[index]['urlToImage']),
