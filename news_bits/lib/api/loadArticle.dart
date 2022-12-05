@@ -15,7 +15,7 @@ class LoadArticle {
     _strDate = _strDate.substring(0, 9);
     try {
       Response articleData = await get(Uri.parse(
-          'https://newsapi.org/v2/everything?q=top%20news&from=$_strDate&sortBy=popularity&apiKey=2bf2ffecb66b4b6a92d7a1e5e0fce40b'));
+          'https://newsapi.org/v2/everything?q=$query=$_strDate&sortBy=popularity&apiKey=2bf2ffecb66b4b6a92d7a1e5e0fce40b'));
       Map res = jsonDecode(articleData.body);
       data = res['articles'];
     } catch (e) {

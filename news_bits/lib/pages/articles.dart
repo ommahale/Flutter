@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class ArticlePage extends StatefulWidget {
   const ArticlePage({super.key});
@@ -62,9 +63,25 @@ class _ArticlePageState extends State<ArticlePage> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ListTile(
-                  subtitle: Text(_dataList[index]['description'] != null
-                      ? _dataList[index]['description']
-                      : 'No description'),
+                  subtitle: Column(
+                    children: [
+                      Html(
+                          data: _dataList[index]['description'] != null
+                              ? _dataList[index]['description']
+                              : 'No description'),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/article',
+                                arguments: _dataList[index]);
+                          },
+                          child: Row(
+                            children: [
+                              Text('Read More'),
+                              Icon(Icons.arrow_forward_ios)
+                            ],
+                          )),
+                    ],
+                  ),
                   title: Column(
                     children: [
                       Image.network(_dataList[index]['urlToImage'] != null
@@ -78,6 +95,17 @@ class _ArticlePageState extends State<ArticlePage> {
                             ? _dataList[index]['title']
                             : "Error loading data",
                         style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'source:' +
+                            _dataList[index]['source']['name'].toString(),
+                        style: const TextStyle(
+                            backgroundColor: Colors.red,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
                         height: 10,
