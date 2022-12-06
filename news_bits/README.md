@@ -3,17 +3,13 @@ This is a simple flutter application to view Daily news update on a mobile appli
 ## How to run this project
 1. Open this project directory and in your terminal window and type
 `flutter pub get` (make sure you have properly installed the Flutter SDK and JDK. Refer [Flutter documentation](https://docs.flutter.dev/) for a complete guide on how to install flutter in your respective OS)
-<br/>
+
 
 2. This will install all the dependecies used in this project.
-<br/>
+
 
 3. Once done with this type:
-<br/>
-
-`flutter run`
-
-<br/>
+    `flutter run`
 
 4. This will run the app in your local android emulator/IOS simulator/USB connected android device.
 <br/>
