@@ -8,7 +8,8 @@ import 'package:news_bits/pages/search.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/home',
+    debugShowCheckedModeBanner: false,
+    initialRoute: '/',
     routes: {
       '/': (context) => LoadingPage(),
       '/home': (context) => HomePage(),

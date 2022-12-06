@@ -16,7 +16,7 @@ class _LoadingPageState extends State<LoadingPage> {
     LoadArticle instance = LoadArticle(query: _query);
     await instance.getData();
     _data = instance.data;
-    Navigator.pushReplacementNamed(context, '/articles', arguments: {_data});
+    Navigator.pushReplacementNamed(context, '/home', arguments: {_data});
   }
 
   Map articles = {};

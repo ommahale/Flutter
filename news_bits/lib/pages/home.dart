@@ -5,6 +5,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Set artSet = ModalRoute.of(context)!.settings.arguments != null
+        ? ModalRoute.of(context)!.settings.arguments as Set
+        : {};
+    print(artSet);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -48,7 +52,8 @@ class HomePage extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushReplacementNamed(context, '/articles',
+                      arguments: artSet);
                 },
                 child: SizedBox(
                   width: 150,

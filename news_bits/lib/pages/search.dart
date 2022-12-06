@@ -23,24 +23,33 @@ class _SearchPageState extends State<SearchPage> {
         child: SizedBox(
           width: 300,
           child: Center(
-            child: TextField(
-              controller: _search,
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.arrow_circle_right_outlined,
-                    color: Colors.blueAccent,
+            child: Column(
+              children: [
+                TextField(
+                  controller: _search,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        Icons.arrow_circle_right_outlined,
+                        color: Colors.blueAccent,
+                      ),
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/',
+                            arguments: _search.text);
+                      },
+                    ),
+                    hintStyle: TextStyle(fontSize: 18),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    hintText: 'Search for a topic',
                   ),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/',
-                        arguments: _search.text);
-                  },
                 ),
-                hintStyle: TextStyle(fontSize: 18),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-                hintText: 'Search for a topic',
-              ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/loading');
+                    },
+                    child: Text('Top Headlines'))
+              ],
             ),
           ),
         ),

@@ -19,36 +19,40 @@ class _ArticleViewState extends State<ArticleView> {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
         child: Center(
-          child: Column(children: [
-            Text(
-              _articleData['title'],
-              style: TextStyle(
-                  fontSize: 20, letterSpacing: 1, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Author: ' + _articleData['author'],
-              style: TextStyle(fontStyle: FontStyle.italic),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(_articleData['urlToImage']),
-            SizedBox(
-              height: 20,
-            ),
-            Text(_articleData['content']),
-            ElevatedButton(
-              onPressed: () {
-                launchUrl(Uri.parse(_articleData['url']),
-                    mode: LaunchMode.externalApplication);
-              },
-              child: Text(
-                'Visit source',
+          child: SingleChildScrollView(
+            child: Column(children: [
+              Text(
+                _articleData['title'],
+                style: TextStyle(
+                    fontSize: 20,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold),
               ),
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black)),
-            )
-          ]),
+              Text(
+                'Author: ' + _articleData['author'],
+                style: TextStyle(fontStyle: FontStyle.italic),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Image.network(_articleData['urlToImage']),
+              SizedBox(
+                height: 20,
+              ),
+              Text(_articleData['content']),
+              ElevatedButton(
+                onPressed: () {
+                  launchUrl(Uri.parse(_articleData['url']),
+                      mode: LaunchMode.externalApplication);
+                },
+                child: Text(
+                  'Visit source',
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black)),
+              )
+            ]),
+          ),
         ),
       ),
     );
