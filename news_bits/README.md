@@ -10,7 +10,9 @@ This is a simple flutter application to view Daily news update on a mobile appli
 
 3. Once done with this type:
 <br/>
+
 `flutter run`
+
 <br/>
 
 4. This will run the app in your local android emulator/IOS simulator/USB connected android device.
