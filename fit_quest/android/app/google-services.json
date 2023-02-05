@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "913668285573-cn62oge4b89lhu0jhheg2h9d9si167bv.apps.googleusercontent.com",
+          "client_id": "913668285573-83fuvigss60d98ncli0ji7k61nrm0k64.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +27,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "913668285573-cn62oge4b89lhu0jhheg2h9d9si167bv.apps.googleusercontent.com",
+              "client_id": "913668285573-83fuvigss60d98ncli0ji7k61nrm0k64.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "913668285573-j776s2he1uv4uhh8ltnmpg8ngmaalj09.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitQuest"
+              }
             }
           ]
         }

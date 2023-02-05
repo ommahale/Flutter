@@ -1,3 +1,4 @@
+import 'package:fit_quest/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Signin extends StatefulWidget {
@@ -8,6 +9,8 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +105,14 @@ class _SigninState extends State<Signin> {
               SizedBox(
                 width: 220,
                 child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      dynamic result = await _auth.signInAnon();
+                      if (result == null) {
+                        print('error');
+                      } else {
+                        print(result);
+                      }
+                    },
                     // ignore: sort_child_properties_last
                     child: Padding(
                         padding: const EdgeInsets.all(10.0),
