@@ -111,6 +111,7 @@ class _SigninState extends State<Signin> {
                         print('error');
                       } else {
                         print(result);
+                        print(result.uid);
                       }
                     },
                     // ignore: sort_child_properties_last
