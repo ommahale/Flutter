@@ -5,10 +5,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Set artSet = ModalRoute.of(context)!.settings.arguments != null
-        ? ModalRoute.of(context)!.settings.arguments as Set
-        : {};
-    print(artSet);
+    List artSet = ModalRoute.of(context)!.settings.arguments != null
+        ? ModalRoute.of(context)!.settings.arguments as List
+        : [];
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -24,25 +23,25 @@ class HomePage extends StatelessWidget {
                   color: Colors.blueAccent[700],
                   size: 50,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(color: Colors.blueAccent, width: 5))),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: Text(
                       "NewsBits",
                       style: TextStyle(fontSize: 40),
                     ),
                   ),
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom:
-                              BorderSide(color: Colors.blueAccent, width: 5))),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextButton(
@@ -59,7 +58,7 @@ class HomePage extends StatelessWidget {
                   width: 150,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Proceed to app',
                         style:

@@ -1,21 +1,20 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:intl/intl.dart';
 
 class LoadArticle {
-  String apiKey = '2bf2ffecb66b4b6a92d7a1e5e0fce40b';
+  final String apiKey = '2bf2ffecb66b4b6a92d7a1e5e0fce40b';
   late List<dynamic> data;
   String? query;
-  DateTime date = new DateTime.now();
+  DateTime date = DateTime.now();
 
   LoadArticle({this.query});
   Future<void> getData() async {
-    String _strDate = date.toString();
-    _strDate = _strDate.substring(0, 9);
+    String strDate = date.toString();
+    strDate = strDate.substring(0, 9);
     try {
       Response articleData = await get(Uri.parse(
-          'https://newsapi.org/v2/everything?q=$query=$_strDate&sortBy=popularity&apiKey=$apiKey'));
+          'https://newsapi.org/v2/everything?q=$query=$strDate&sortBy=popularity&apiKey=$apiKey'));
       Map res = jsonDecode(articleData.body);
       data = res['articles'];
     } catch (e) {

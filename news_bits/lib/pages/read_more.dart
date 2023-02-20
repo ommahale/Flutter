@@ -11,7 +11,7 @@ class ArticleView extends StatefulWidget {
 class _ArticleViewState extends State<ArticleView> {
   @override
   Widget build(BuildContext context) {
-    dynamic _articleData = ModalRoute.of(context)!.settings.arguments;
+    dynamic articleData = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
@@ -22,34 +22,34 @@ class _ArticleViewState extends State<ArticleView> {
           child: SingleChildScrollView(
             child: Column(children: [
               Text(
-                _articleData['title'],
-                style: TextStyle(
+                articleData['title'],
+                style: const TextStyle(
                     fontSize: 20,
                     letterSpacing: 1,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                'Author: ' + _articleData['author'],
+                'Author: ' + articleData['author'],
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Image.network(_articleData['urlToImage']),
-              SizedBox(
+              Image.network(articleData['urlToImage']),
+              const SizedBox(
                 height: 20,
               ),
-              Text(_articleData['content']),
+              Text(articleData['content']),
               ElevatedButton(
                 onPressed: () {
-                  launchUrl(Uri.parse(_articleData['url']),
+                  launchUrl(Uri.parse(articleData['url']),
                       mode: LaunchMode.externalApplication);
                 },
-                child: Text(
-                  'Visit source',
-                ),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black)),
+                child: const Text(
+                  'Visit source',
+                ),
               )
             ]),
           ),

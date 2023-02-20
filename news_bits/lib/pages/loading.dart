@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:news_bits/api/loadArticle.dart';
+import 'package:news_bits/api/load_article.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
@@ -10,19 +10,19 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  String _query = 'top%20news';
+  final String _query = 'top%20news';
   List<dynamic> _data = [{}];
   void setData() async {
     LoadArticle instance = LoadArticle(query: _query);
     await instance.getData();
     _data = instance.data;
-    Navigator.pushReplacementNamed(context, '/home', arguments: {_data});
+    // ignore: use_build_context_synchronously
+    Navigator.pushReplacementNamed(context, '/home', arguments: _data);
   }
 
   Map articles = {};
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     setData();
   }

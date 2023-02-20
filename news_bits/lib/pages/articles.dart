@@ -11,14 +11,13 @@ class ArticlePage extends StatefulWidget {
 class _ArticlePageState extends State<ArticlePage> {
   @override
   Widget build(BuildContext context) {
-    Set artSet = ModalRoute.of(context)!.settings.arguments as Set;
-    List _dataList = artSet.first;
+    List dataList = ModalRoute.of(context)!.settings.arguments as List;
     return Scaffold(
       backgroundColor: Colors.blueGrey[100],
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: IconButton(
-            icon: Icon(Icons.replay_rounded),
+            icon: const Icon(Icons.replay_rounded),
             onPressed: () {
               Navigator.popAndPushNamed(context, '/');
             },
@@ -40,17 +39,18 @@ class _ArticlePageState extends State<ArticlePage> {
               ),
               Container(
                 // ignore: prefer_const_constructors
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Text(
-                    "NewsBits",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                ),
                 decoration: const BoxDecoration(
                     border: Border(
                         bottom:
                             BorderSide(color: Colors.blueAccent, width: 5))),
+                // ignore: prefer_const_constructors
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: const Text(
+                    "NewsBits",
+                    style: TextStyle(fontSize: 26),
+                  ),
+                ),
               )
             ],
           )),
@@ -66,16 +66,15 @@ class _ArticlePageState extends State<ArticlePage> {
                   subtitle: Column(
                     children: [
                       Html(
-                          data: _dataList[index]['description'] != null
-                              ? _dataList[index]['description']
-                              : 'No description'),
+                          data: dataList[index]['description'] ??
+                              'No description'),
                       TextButton(
                           onPressed: () {
                             Navigator.pushNamed(context, '/article',
-                                arguments: _dataList[index]);
+                                arguments: dataList[index]);
                           },
                           child: Row(
-                            children: [
+                            children: const [
                               Text('Read More'),
                               Icon(Icons.arrow_forward_ios)
                             ],
@@ -84,30 +83,24 @@ class _ArticlePageState extends State<ArticlePage> {
                   ),
                   title: Column(
                     children: [
-                      Image.network(_dataList[index]['urlToImage'] != null
-                          ? _dataList[index]['urlToImage']
-                          : 'https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns='),
-                      SizedBox(
+                      Image.network(dataList[index]['urlToImage'] ??
+                          'https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?s=612x612&w=0&k=20&c=PM_optEhHBTZkuJQLlCjLz-v3zzxp-1mpNQZsdjrbns='),
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        _dataList[index]['title'] != null
-                            ? _dataList[index]['title']
-                            : "Error loading data",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        dataList[index]['title'] ?? "Error loading data",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        'source:' +
-                            _dataList[index]['source']['name'].toString(),
+                        'source:${dataList[index]['source']['name']}',
                         style: const TextStyle(
-                            backgroundColor: Colors.red,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
+                            color: Colors.grey, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                     ],
@@ -117,7 +110,7 @@ class _ArticlePageState extends State<ArticlePage> {
             ),
           );
         }),
-        itemCount: _dataList.length,
+        itemCount: dataList.length,
       ),
     );
   }
